@@ -14,6 +14,7 @@
             <div id="input">
                 <form onsubmit="submitForm(event)" id="grid">
                     <input id="input-field" class="grid-item" type="text">
+                    <input type="button" class="grid-item" value="C" onclick="clearInput()">
                     <input type="button" class="grid-item" value="1" onclick="addToInput(event)">
                     <input type="button" class="grid-item" value="2" onclick="addToInput(event)">
                     <input type="button" class="grid-item" value="3" onclick="addToInput(event)">
@@ -28,7 +29,7 @@
                     <input type="button" class="grid-item" value="*" onclick="addToInput(event)">
                     <input type="button" class="grid-item" value="." onclick="addToInput(event)">
                     <input type="button" class="grid-item" value="0" onclick="addToInput(event)">
-                    <input id="equals" type="button" class="grid-item" value="=">
+                    <button id="equals" type="submit" class="grid-item">=</button>
                     <input type="button" class="grid-item" value="/">
                 <!-- <input class="grid-item" type="number" id="num1" required>
                 <input class="grid-item" type="button" id="add" value="+" onclick="getOperation('+')">

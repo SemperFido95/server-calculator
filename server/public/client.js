@@ -2,10 +2,10 @@ console.log('script sourced.');
 
 let operation = '';
 
-let getOperation = symbol => {
-    operation = symbol;
-    console.log(operation);
-}
+// let getOperation = symbol => {
+//     operation = symbol;
+//     console.log(operation);
+// }
 
 let getCalc = () => {
     axios.get('/calc').then((response) => {
@@ -25,12 +25,30 @@ let getCalc = () => {
 
 let submitForm = event => {
     event.preventDefault();
+    console.log(event);
+    let toArray = event.target[0].value.split('');
+    toArray.forEach(element => {
+        switch (element) {
+            case '+':
+                operation = '+';
+                break;
+            case '-':
+                operation = '-';
+                break;
+            case '*':
+                operation = '*';
+                break;
+            case '/':
+                operation = '/';
+                break;
+        }
+    });
+    console.log(operation);
     if (operation === '') {
-        alert('please select an operator')
+        alert('Please select an operator.');
     } else {
-        console.log(event);
-        let num1 = event.target[0].valueAsNumber;
-        let num2 = event.target[5].valueAsNumber;
+        let num1 = toArray[0];
+        let num2 = toArray[2];
         let calcForServer = {
             num1,
             operation,
@@ -42,21 +60,44 @@ let submitForm = event => {
         }).catch((error) => {
             console.log(error);
             alert('Something went wrong.');
-        })
+        });
     }
-    
 }
 
+// let submitForm = event => {
+//     event.preventDefault();
+//     if (operation === '') {
+//         alert('please select an operator')
+//     } else {
+//         console.log(event);
+//         let num1 = event.target[0].valueAsNumber;
+//         let num2 = event.target[5].valueAsNumber;
+//         let calcForServer = {
+//             num1,
+//             operation,
+//             num2
+//         };
+        // axios.post('/calc', calcForServer).then((response) => {
+        //     console.log(response);
+        //     getCalc();
+        // }).catch((error) => {
+        //     console.log(error);
+        //     alert('Something went wrong.');
+        // })
+//     }
+    
+// }
+
 let clearInput = () => {
-    document.getElementById('num1').value = '';
-    document.getElementById('num2').value = '';
+    document.getElementById('input-field').value = '';
     operation = '';
 }
 
 function addToInput(event) {
     console.log('testing');
-    console.log(event)
-    let textToAdd = event.target
+    console.log(event);
+    let textToAdd = event.target.value;
+    console.log(textToAdd);
     let inputDiv = document.getElementById('input-field');
-    inputDiv.innerHTML += 
+    inputDiv.value += textToAdd;
 }
