@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const port = process.env.PORT || 5001;
-const calcRouter = require('./Calculator.router');
+const calcRouter = require('../server/routes/Calculator.router');
 
 app.use(express.json());
 app.use('/calc', calcRouter);
