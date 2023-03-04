@@ -21,6 +21,7 @@ function getAnswer() {
         default:
             console.log('invalid calculation');
     }
+    console.log(calcObject.operation);
 }
 
 

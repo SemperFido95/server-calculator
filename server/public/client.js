@@ -26,7 +26,7 @@ let getCalc = () => {
 let submitForm = event => {
     event.preventDefault();
     console.log(event);
-    let toArray = event.target[0].value.split('');
+    let toArray = event.target[0].value.split(' ');
     toArray.forEach(element => {
         switch (element) {
             case '+':
@@ -47,8 +47,9 @@ let submitForm = event => {
     if (operation === '') {
         alert('Please select an operator.');
     } else {
-        let num1 = toArray[0];
-        let num2 = toArray[2];
+        let num1 = parseFloat(toArray[0]);
+        let num2 = parseFloat(toArray[2]);
+        console.log(num1);
         let calcForServer = {
             num1,
             operation,
@@ -99,5 +100,20 @@ function addToInput(event) {
     let textToAdd = event.target.value;
     console.log(textToAdd);
     let inputDiv = document.getElementById('input-field');
-    inputDiv.value += textToAdd;
+    switch (textToAdd) {
+        case '+':
+            inputDiv.value += ` ${textToAdd} `;
+            break;
+        case '-':
+            inputDiv.value += ` ${textToAdd} `;
+            break;
+        case '*':
+            inputDiv.value += ` ${textToAdd} `;
+            break;
+        case '/':
+                inputDiv.value += ` ${textToAdd} `;
+                break;
+        default:
+            inputDiv.value += textToAdd;
+    }
 }
