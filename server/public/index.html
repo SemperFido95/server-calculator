@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="./styles.css">
+        <title>Calculator</title>
+    </head>
+    <body>
+        <div id="content">
+            <header>
+                <h1>Calculator</h1>
+            </header>
+            <div id="input">
+                <form onsubmit="submitForm(event)" id="grid">
+                    <input id="input-field" class="grid-item" type="text">
+                    <input type="button" class="grid-item" value="1" onclick="addToInput(event)">
+                    <input type="button" class="grid-item" value="2" onclick="addToInput(event)">
+                    <input type="button" class="grid-item" value="3" onclick="addToInput(event)">
+                    <input type="button" class="grid-item" value="+" onclick="addToInput(event)">
+                    <input type="button" class="grid-item" value="4" onclick="addToInput(event)">
+                    <input type="button" class="grid-item" value="5" onclick="addToInput(event)">
+                    <input type="button" class="grid-item" value="6" onclick="addToInput(event)">
+                    <input type="button" class="grid-item" value="-" onclick="addToInput(event)">
+                    <input type="button" class="grid-item" value="7" onclick="addToInput(event)">
+                    <input type="button" class="grid-item" value="8" onclick="addToInput(event)">
+                    <input type="button" class="grid-item" value="9" onclick="addToInput(event)">
+                    <input type="button" class="grid-item" value="*" onclick="addToInput(event)">
+                    <input type="button" class="grid-item" value="." onclick="addToInput(event)">
+                    <input type="button" class="grid-item" value="0" onclick="addToInput(event)">
+                    <input id="equals" type="button" class="grid-item" value="=">
+                    <input type="button" class="grid-item" value="/">
+                <!-- <input class="grid-item" type="number" id="num1" required>
+                <input class="grid-item" type="button" id="add" value="+" onclick="getOperation('+')">
+                <input class="grid-item" type="button" id="subtract" value="-" onclick="getOperation('-')">
+                <input class="grid-item" type="button" id="muliply" value="*" onclick="getOperation('*')"> 
+                <input class="grid-item" type="button" id="divide" value="/" onclick="getOperation('/')">
+                <input class="grid-item" type="number" id="num2" required>
+                <input class="grid-item"type="button" id="clear" onclick="clearInput()" value="C"> -->
+                <!-- <button type="submit">=</button> -->
+                </form>
+            </div>
+            <div id="answer">
+            </div>
+            <div id="history">
+            </div>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script src="./client.js"></script>
+    </body>
+</html>
