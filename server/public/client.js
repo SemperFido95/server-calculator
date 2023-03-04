@@ -12,7 +12,7 @@ let getCalc = () => {
         console.log(response);
         let calcsFromServer = response.data;
         let answerDiv = document.getElementById('input-field');
-        answerDiv.value = calcsFromServer[calcsFromServer.length - 1].answer;
+        answerDiv.innerHTML = calcsFromServer[calcsFromServer.length - 1].answer;
         let historyDiv = document.getElementById('history') ;
         historyDiv.innerHTML = '';
         for (let calc of calcsFromServer) {
@@ -26,7 +26,7 @@ let getCalc = () => {
 let submitForm = event => {
     event.preventDefault();
     console.log(event);
-    let toArray = event.target[0].value.split(' ');
+    let toArray = document.getElementById('input-field').innerHTML.split(' ');
     toArray.forEach(element => {
         switch (element) {
             case '+':
@@ -109,18 +109,18 @@ function addToInput(event) {
     let inputDiv = document.getElementById('input-field');
     switch (textToAdd) {
         case '+':
-            inputDiv.value += ` ${textToAdd} `;
+            inputDiv.innerHTML += ` ${textToAdd} `;
             break;
         case '-':
-            inputDiv.value += ` ${textToAdd} `;
+            inputDiv.innerHTML += ` ${textToAdd} `;
             break;
         case '*':
-            inputDiv.value += ` ${textToAdd} `;
+            inputDiv.innerHTML += ` ${textToAdd} `;
             break;
         case '/':
-                inputDiv.value += ` ${textToAdd} `;
+                inputDiv.innerHTML += ` ${textToAdd} `;
                 break;
         default:
-            inputDiv.value += textToAdd;
+            inputDiv.innerHTML += textToAdd;
     }
 }
