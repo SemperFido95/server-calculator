@@ -97,7 +97,7 @@ let submitForm = event => {
 // }
 
 let clearInput = () => {
-    document.getElementById('input-field').value = '';
+    document.getElementById('input-field').innerHTML = '';
     operation = '';
 }
 
