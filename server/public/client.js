@@ -11,9 +11,11 @@ let getCalc = () => {
     axios.get('/calc').then((response) => {
         console.log(response);
         let calcsFromServer = response.data;
-        let answerDiv = document.getElementById('input-field');
-        answerDiv.innerHTML = calcsFromServer[calcsFromServer.length - 1].answer;
-        let historyDiv = document.getElementById('history') ;
+        if (Object.keys(response.data).length > 0) {
+            let answerDiv = document.getElementById('input-field');
+            answerDiv.innerHTML = calcsFromServer[calcsFromServer.length - 1].answer;
+        }
+        let historyDiv = document.getElementById('history');
         historyDiv.innerHTML = '';
         for (let calc of calcsFromServer) {
             historyDiv.innerHTML += `
@@ -72,6 +74,7 @@ let submitForm = event => {
     }
 }
 
+
 // let submitForm = event => {
 //     event.preventDefault();
 //     if (operation === '') {
@@ -123,4 +126,13 @@ function addToInput(event) {
         default:
             inputDiv.innerHTML += textToAdd;
     }
+}
+
+function clearHistory() {
+    console.log('Deleting history');
+    axios.delete('/calc').then((response) => {
+        console.log(response);
+        getCalc();
+        clearInput();
+    })
 }

@@ -39,5 +39,11 @@ router.post('/', (req, res) => {
     getAnswer();
 });
 
+router.delete('/', (req, res) => {
+    res.sendStatus(200);
+    calcs = [];
+    console.log(calcs);
+})
+
 
 module.exports = router;
